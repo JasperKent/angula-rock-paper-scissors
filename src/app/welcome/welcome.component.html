@@ -1,0 +1,5 @@
+<h1>Welcome</h1>
+<p>Welcome to Rock-Paper-Scissors</p>
+<label for="name">Enter your name:</label>
+<input type="text" name="name" #nameInput (keydown.enter)="register(nameInput.value)"/>
+<button (click)="register(nameInput.value)">Enter</button>

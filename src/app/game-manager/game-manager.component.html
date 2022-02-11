@@ -1,0 +1,8 @@
+<div class="text-center">
+    <div *ngIf="(status$ | async) as playStatus; else not_connected" [ngSwitch]="playStatus.status">
+        <app-welcome *ngSwitchCase="'connected'"></app-welcome>
+        <div *ngSwitchCase="'waiting'"><p>Waiting for another player to connect ...</p></div>
+        <app-playing *ngSwitchCase="'playing'" [game]="playStatus"></app-playing>
+    </div>
+    <ng-template #not_connected>Waiting for server connection ...</ng-template>
+ </div>

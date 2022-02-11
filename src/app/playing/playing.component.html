@@ -1,0 +1,8 @@
+<p>You are playing against {{opponent}}.</p>
+<p>Click on selection:</p>
+<button (click)="throw('Rock')" [class.highlight]="currentThrow === 'Rock'">Rock</button>
+<button (click)="throw('Paper')" [class.highlight]="currentThrow === 'Paper'">Paper</button>
+<button (click)="throw('Scissors')" [class.highlight]="currentThrow === 'Scissors'">Scissors</button>
+<p>{{(output$ | async)?.line1}}</p>
+<p>{{(output$ | async)?.line2}}</p>
+<p>{{(output$ | async)?.scores}}</p>
