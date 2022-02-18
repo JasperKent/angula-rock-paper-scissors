@@ -51,7 +51,16 @@ export class PlayingComponent implements OnInit {
     };
   }
 
-  output$: Observable<Output> | undefined = undefined;
+  output$ = this.hub.outcome$!.pipe(
+    map(outcome =>{
+      switch(outcome.type){
+        case 'pending': return this.processPending(outcome.value as Pending);
+        case 'drawn': return this.processDrawn(outcome.value as Drawn);
+        case 'won': return this.processWon(outcome.value as Won);
+        default: throw ('Unexpected result');
+      }
+    })
+  )
 
   constructor(private hub: HubConnectionService) { }
 

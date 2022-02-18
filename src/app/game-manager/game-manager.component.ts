@@ -11,7 +11,7 @@ import { GameStatus } from '../hub-connection/messages';
 export class GameManagerComponent {
 
   get status$(): Observable<GameStatus> | undefined {
-    return undefined;
+    return this.hub.status$;
   }
 
   constructor(public hub: HubConnectionService) { }
